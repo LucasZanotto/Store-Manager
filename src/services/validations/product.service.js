@@ -6,7 +6,11 @@ const { productModel } = require('../../models');
 // const PRODUCT_FINISHED = 4;
 
 const getWaitingProducts = async (id) => {
-  const result = await productModel.findByProductId(id);
+  if (id) {
+    const result = await productModel.findByProductId(id);
+    return { type: null, message: result };
+  } 
+  const result = await productModel.findByAllId();
   return { type: null, message: result };
 };
 
