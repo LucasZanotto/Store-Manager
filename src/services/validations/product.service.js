@@ -1,4 +1,7 @@
 const { productModel } = require('../../models');
+const {
+  validateInputProduct,
+} = require('./validateInputProduct');
 
 // const WAITING_PRODUCT = 1;
 // const PRODUCT_ON_THE_WAY = 2;
@@ -14,6 +17,31 @@ const getWaitingProducts = async (id) => {
   return { type: null, message: result };
 };
 
+const productAssign = async ({ id }) => {
+  const error = await validateInputProduct({ id });
+  if (error.type) return error;
+
+  const result = await productModel.findByProductId(id);
+  return { type: null, message: result };
+};
+
+const create = async ({ name }) => {
+  const newProduct = await productModel.insert({ name });
+  return { id: newProduct, name };
+};
+
 module.exports = {
   getWaitingProducts,
+  productAssign,
+  create,
 };
+
+// if (products && products.length > 0) {
+//   return async (value) => {
+//     await productModel.insert({
+//       name: value.name,
+//     });
+//   };
+// }
+
+// return [];
