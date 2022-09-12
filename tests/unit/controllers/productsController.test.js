@@ -1,9 +1,10 @@
 const chai = require('chai');
 const sinon = require('sinon');
-// const chaiHttp = require('chai-http');
-// const sinonChai = require('sinon-chai');
+const chaiHttp = require('chai-http');
 
 const { expect } = chai;
+
+chai.use(chaiHttp);
 
 const app = require('../../../src/app');
 
@@ -19,7 +20,7 @@ describe('Teste de integração de products', function () {
       .resolves([[CorrectProductId]])
 
     const response = await chai
-      .use(app)
+      .request(app)
       .get("/products");
 
     expect(response.status).to.be.equal(200);
