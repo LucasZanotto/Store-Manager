@@ -24,7 +24,7 @@ describe('Teste de integração de products', function () {
       .get("/products");
 
     expect(response.status).to.be.equal(200);
-    expect(response.body).to.be.deep.equal(CorrectProductId);
+    expect(response.body).to.be.deep.equal([CorrectProductId]);
   });
   afterEach(sinon.restore);
 })
