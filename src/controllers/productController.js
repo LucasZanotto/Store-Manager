@@ -8,14 +8,6 @@ const openProduct = async (req, res) => {
   res.status(200).json(message);
 };
 
-const productAssign = async (req, res) => {
-  const { id } = req.params;
-  const { type, message } = await productService.productAssign({ id });
-  if (type) return res.status(errorMap.mapError(type)).json({ message });
-
-  res.status(200).json(message);
-};
-
 const create = async (req, res) => {
     const { name } = req.body;
     
@@ -26,6 +18,5 @@ const create = async (req, res) => {
 
 module.exports = {
   openProduct,
-  productAssign,
   create,
 };
