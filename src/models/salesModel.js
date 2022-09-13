@@ -22,7 +22,7 @@ INNER JOIN StoreManager.products pr
 ON sa.id = pr.id
 INNER JOIN StoreManager.sales_products sp
 ON sa.id = sp.sale_id
-ORDER BY sp.sale_id`,
+ORDER BY sp.sale_id AND pr.id`,
   );
   return result;
 };
