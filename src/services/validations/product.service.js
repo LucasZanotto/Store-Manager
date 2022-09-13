@@ -35,13 +35,3 @@ module.exports = {
   productAssign,
   create,
 };
-
-// if (products && products.length > 0) {
-//   return async (value) => {
-//     await productModel.insert({
-//       name: value.name,
-//     });
-//   };
-// }
-
-// return [];

@@ -17,11 +17,11 @@ const productAssign = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  const { name } = req.body;
+    const { name } = req.body;
+    
+    const newProduct = await productService.create({ name });
   
-  const newProduct = await productService.create({ name });
-
-  res.status(201).json(newProduct);
+    res.status(201).json(newProduct);
 }; 
 
 module.exports = {
