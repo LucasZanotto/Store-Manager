@@ -30,9 +30,9 @@ const deleteByProduct = async (req, res) => {
   const { id } = req.params;
   console.log(id);
 
-  await productService.deleteByProduct({ id });
+  const newProduct = await productService.deleteByProduct({ id });
 
-  res.status(204);
+  res.status(204).json(newProduct);
 }; 
 
 module.exports = {

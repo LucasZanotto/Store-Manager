@@ -34,7 +34,11 @@ const deleteById = async (productId) => {
     'DELETE FROM StoreManager.products WHERE id = ?',
     [productId],
   );
-  return result;
+  const [result2] = await connection.execute(
+    'DELETE FROM StoreManager.sales_products WHERE product_id = ?',
+    [productId],
+  );
+  return result && result2;
 };
 
 module.exports = {
