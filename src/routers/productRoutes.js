@@ -11,6 +11,8 @@ router.get('/:id', productMiddle, productController.openProduct);
 
 router.post('/', charactersMiddle, productController.create);
 
+router.delete('/:id', productMiddle, productController.deleteByProduct);
+
 router.put(
   '/:id',
   charactersMiddle,
