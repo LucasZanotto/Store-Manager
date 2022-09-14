@@ -21,8 +21,18 @@ const findByAllId = async () => {
   return result;
 };
 
+const updateById = async (name, productId) => {
+  console.log(name, productId);
+  const [result] = await connection.execute(
+    `UPDATE StoreManager.products SET name = '${name}' WHERE id = ?`,
+    [productId],
+  );
+  return result;
+};
+
 module.exports = {
   findByProductId,
   findByAllId,
   insert,
+  updateById,
 };

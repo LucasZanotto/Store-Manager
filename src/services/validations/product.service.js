@@ -14,7 +14,14 @@ const create = async ({ name }) => {
   return { id: newProduct, name };
 };
 
+const updateByProduct = async ({ name, id }) => {
+  await console.log(name, id);
+  await productModel.updateById(name, id);
+  return { id, name };
+};
+
 module.exports = {
   getWaitingProducts,
   create,
+  updateByProduct,
 };
